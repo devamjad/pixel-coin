@@ -1,5 +1,6 @@
 const SHA256 = require('crypto-js/sha256');
-class Block{
+class Block
+{
 
 constructor(index,timestamp,data,previousHash='')
 {
@@ -43,13 +44,39 @@ newBlock.hash = newBlock.calculateHash();
 this.chain.push(newBlock);
 }
 
+isChainValid() 
+{
+for(let i= 1; i<this.chain.length; i++) 
+{
+const currentBlock = this.chain[i];
+const previousBlock = this.chain[i-1];
+
+if(currentBlock.hash!== currentBlock.calculateHash())
+{
+return false;
+}
+
+if(currentBlock.previousHash!==previousBlock.hash) 
+{
+return false;
+}
+
+}
+return true; 
+}
+
 
 }
 
 let pixelmetiCoin = new Blockchain();
-pixelmetiCoin.addBlock(new Block(1,'25/08/2021',{amount:5}));
-pixelmetiCoin.addBlock(new Block(2,'26/08/2021',{amount:10}));
-pixelmetiCoin.addBlock(new Block(3,'27/08/2021',{amount:15}));
-pixelmetiCoin.addBlock(new Block(4,'28/08/2021',{amount:20}));
+pixelmetiCoin.addBlock(new Block(1,'08/25/2021',{amount:5}));
+pixelmetiCoin.addBlock(new Block(2,'08/26/2021',{amount:10}));
+pixelmetiCoin.addBlock(new Block(3,'08/27/2021',{amount:15}));
+pixelmetiCoin.addBlock(new Block(4,'08/28/2021',{amount:20}));
+
 
 console.log(JSON.stringify(pixelmetiCoin,null,4));
+
+/// To verify if the blockchain is valid?
+
+//console.log('Is blockchain valid??'+pixelmetiCoin.isChainValid());
