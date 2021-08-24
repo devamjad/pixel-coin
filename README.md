@@ -21,4 +21,4 @@ Once the project clone is successfully completed then follow the below commands
 
 # To Run the Application 
 
-* node main.js press enter 
+* node main.js 
