@@ -3,7 +3,7 @@
 So the First Step  We gonna use NPM in the order to use NPM,Which is the Node Package Manager you need to have a Node Js installed
 just go to [NodeJs](https://nodejs.org/en/) and download either the long-term support or latest version.
 
-# Check if npm is installed on your directory 
+# Check if npm is installed on your machine 
 
 * npm version 
 
